@@ -31,8 +31,9 @@ def book_ids_from_frontmatter(frontmatter):
 
     books = []
     for section in sections:
-        for book_id in section['books']:
-            books.append(book_id)
+        for source in section['listings']:
+            if source['type'] == 'book':
+                books.append(source['id'])
 
     return books
 
@@ -62,7 +63,7 @@ def get_asins_from_files(book_data_paths):
     for path in book_data_paths:
         book_file = open(path)
         book_yaml = grab_yaml_frontmatter(book_file)
-        asins.append(yaml.load(book_yaml)['amzn'])
+        asins.append(str(yaml.load(book_yaml)['amzn']))
         book_file.close()
 
     return asins
