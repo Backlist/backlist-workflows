@@ -118,8 +118,6 @@ def gather_covers(input_files):
 
         result.append(img)
 
-    random.shuffle(result)
-
     return result
 
 
@@ -160,6 +158,8 @@ if __name__ == '__main__':
 
     # Loop number of times specified in command line arguments
     for i in range(count):
+        random.shuffle(covers)
+
         # Create an image of the covers in a vertical strip
         # to repeat in composite
         cover_strip = build_cover_strip(covers)
