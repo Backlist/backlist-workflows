@@ -6,7 +6,7 @@ import sys
 from PIL import Image, ImageDraw
 
 IMG_WIDTH = 1200
-IMG_HEIGHT = 630
+IMG_HEIGHT = 650
 COVER_WIDTH = int(IMG_WIDTH / 4)
 BACKGROUND_COLOR = (39, 46, 111, 255)
 OVERLAY_COLOR = (39, 46, 111, 220)
