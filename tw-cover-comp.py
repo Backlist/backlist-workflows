@@ -68,4 +68,4 @@ if __name__ == '__main__':
         # Move next x draw position over one cover and one border
         x_offset += cover.size[0] + BORDER_WIDTH
 
-    composite.save('twitter-cover-image.jpg', 'JPEG', quality=70)
+    composite.save('output/twitter-cover-image.jpg', 'JPEG', quality=70)
