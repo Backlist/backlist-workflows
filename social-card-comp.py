@@ -98,7 +98,7 @@ def finish_image(canvas, idx):
     right = left + IMG_WIDTH
     bottom = top + IMG_HEIGHT
     canvas = canvas.crop((left, top, right, bottom))
-    canvas.save("social-card-{}.jpg".format(idx), 'JPEG', quality=90)
+    canvas.save("output/social-card-{}.jpg".format(idx), 'JPEG', quality=90)
 
 
 def gather_covers(input_files):
