@@ -10,6 +10,7 @@ IMG_HEIGHT = 650
 COVER_WIDTH = int(IMG_WIDTH / 4)
 BACKGROUND_COLOR = (39, 46, 111, 255)
 OVERLAY_COLOR = (39, 46, 111, 220)
+LIGHT_OVERLAY_COLOR = (39, 46, 111, 180)
 
 
 def build_canvas(cover_strip):
@@ -98,6 +99,16 @@ def finish_image(canvas, idx):
     right = left + IMG_WIDTH
     bottom = top + IMG_HEIGHT
     canvas = canvas.crop((left, top, right, bottom))
+
+    overlay = Image.new(
+                mode='RGBA',
+                size=(IMG_WIDTH, IMG_HEIGHT),
+                color=(0, 0, 0, 0))
+    context = ImageDraw.Draw(overlay, mode='RGBA')
+    context.rectangle((0, 0, IMG_WIDTH, IMG_HEIGHT), LIGHT_OVERLAY_COLOR)
+
+    canvas = Image.alpha_composite(canvas, overlay)
+
     canvas.save("output/social-card-{}.jpg".format(idx), 'JPEG', quality=90)
 
 
